@@ -1,0 +1,221 @@
+-----------------------------------------------------------------------------------------------------------------------------------------------
+Useful Git Commands:-
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+git --version			- gives the version of git installed.
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+Getting and Creating Projects:-
+------------------------------------------------------------------------------------------------------------------------------------------------
+git init 				- initializes the current directory as a Git repository.
+Or
+git init [project-name]			- creates a new local repository with the specified name.
+
+git clone [url]				- copy a git repository to the current directory.
+
+git clone [url] <directory-name> 	- copy a git repository to the directory specified by <directory-name>.
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+Basic Snapshotting:-
+------------------------------------------------------------------------------------------------------------------------------------------------
+git add 			- adds file contents to the staging area.
+
+git add .			- adds all the files & directories contents in the current path to the staging area.
+
+git add <file-name or dir-name>	- adds file contents to the staging area.
+
+git status 			- view the status of your files in the working directory and staging area.shows the working tree status, i.e. 					  which files have changed, which are staged and which are not part of the staging area. It also shows which 					  files have merge conflicts and gives an indication what the user can do with these changes, e.g. add them to 					  the staging area or remove them, etc.
+
+git status -s			- view the status of your files in the working directory and staging area in a beautified display way.
+
+git diff 			- shows diff of what is staged and what is modified but unstaged.(Inspection and Comparison,check the changes 					  via the diff command.).
+
+git diff [path] 		- optional you can also specify a path to filter the displayed changes, path can be a file or directory.
+
+git diff HEAD			- if we want the diff of our most recent commit, which we can refer to using the HEAD pointer.
+
+git commit 						- records a snapshot of the staging area.
+
+git commit . -m "Initial commit"   		        - commits all the file in current path of the local repository.
+
+git commit . -am "Initial commit"   		        - adds & commits all the file in current path of the local repository.
+
+git commit <file-name or dir-name> -m "Commit Message"  - commit your file to the local repository.
+
+git commit <file1> <file2> <file3> -m "Commit Message"  - commits all space separated files from your local repository.
+
+git commit <dir1> <dir2> <dir3>    -m "Commit Message"  - commits all space separated directories from your local repository.
+
+git reset 				- undo changes and commits.
+
+git reset .				- undo all the changes and commits in the current directory path.
+
+git reset <file-name or dir-name> 	- You can unstage files by using the git reset command (i.e removes the corresponding 
+                                          file or directory from the stagge).
+
+git reset <file1> <file2> <file3> 	- undo changes and commits of file1, file2 & file3 respectively.
+
+git reset <dir1> <dir2> <dir3>		- undo changes and commits of dir1, dir2 & dir3 respectively.
+
+git reset HEAD 				- unstage files from index and reset pointer to HEAD
+
+ git reset --soft 			- moves HEAD to specified commit reference, index and staging are untouched
+
+The first thing git reset does is undo the last commit and put the files back onto the stage. If you include the --soft flag this is where it stops. For example, if you run git reset --soft HEAD~ (the parent of the HEAD) the last commit will be undone and the files touched will be back on the stage again.
+
+git reset --hard			- unstage files AND undo any changes in the working directory since last commit
+
+The third option is to go --hard and make your working directory look like the index, unstage files and undo any changes made since the last commit. This is the most dangerous option and not working directory safe. Any changes not in the index or have not been commited will be lost.
+
+git reset --hard HEAD			- 
+
+git reset --hard <origin-name>/<branch-name>	- resets the HEAD of origin and the branch,local changes will be gone.
+
+Eaxmple - 
+git reset --hard origin/master		-  resets the HEAD of origin and the branch, in this case master.
+
+git rm 					- remove files from the staging area.
+
+git rm -f <file-name or dir-name>	- removes files or directories.
+
+git rm -f <file1> <file2>		- remove file1 and file2 from the staging area forcefully. 
+
+git rm -rf <dir1> <dir2>		- remove dir1 & dir2 contents from the staging area recursively & forcefully. 
+
+git mv <source location> <dest location> - move files from the staging area.
+
+git stash 				- save changes made in the current index and working directory for later.
+
+git stash list 				- view stashes currently on the stack
+------------------------------------------------------------------------------------------------------------------------------------------------
+Branching and Merging:-
+------------------------------------------------------------------------------------------------------------------------------------------------
+git branch			- lists all the branches , * - represents current working branch.
+
+git branch -a			- lists all the branches.
+
+git branch -r			- lists all the branches.
+
+git branch <branch-name> 	- creates a branch with branch-name.
+
+git branch -d <branch name>     - You can use -d option to delete a branch. 
+
+git branch -D <branch name>     - You can use -d option to delete a branch. (Forced deletion)
+
+git merge 			- merge a branch context into your current one.
+
+git merge <branch-name>		- merges the contents of <branch-name> to current branch.
+
+git log 			- show commit history of a branch.(Inspection and Comparison).
+
+git log [file path]		- git log filename shows the commits for this file.
+
+git log -p filename		- Use -p to see the diffs of each commit.
+
+git log --follow -p file 	- --follow shows the entire history,including renames.
+
+git log --author=authorname 	- The following command lists all commits with an author name containing the word "authorname".
+
+git log --oneline		- To see a more compact version of the same history, we can use the --oneline option.
+
+git log --oneline --graph	- We can also use it to see when the history was branched and merged with the very helpful --graph option.
+
+git tag 			- tag a point in history as important.
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+Sharing and Updating Projects:-
+------------------------------------------------------------------------------------------------------------------------------------------------
+git fetch 			- download new branches and data from a remote repository.
+
+git fetch  <remote-name> 	-
+
+git fetch -p			- remove any remote-tracking branches which no longer exist on the remote. (removes the local or remote branches which 					  no longer exists)
+
+git pull 			- fetch from a remote repo and try to merge into the current branch.
+
+git pull  <remote-name> <branch-name>
+
+Eample:-
+git pull origin master		- fetch down new data from a remote server. This command will basically run a git fetch immediately followed 					  by a git merge of the branch on that remote that is tracked by whatever branch you are currently in. 
+
+git push 			- push your new branches and data to a remote repository.
+
+git push  <remote-name> <branch-name> 
+
+Eample:-
+git push origin master		- pushes to remote repository.
+
+
+
+git remote 			- list, add and delete remote repository aliases.
+
+git remote -v			-
+
+git remote update		- updates the remote branches of the repository.
+
+git remote add <remote-name> <URL>	- adds a local git repo to remote. 
+
+git remote show <remote-name>	- gives details about the origin.
+
+Eample:-
+git remote show origin		- If you want to see more information about a particular remote, you can use this command. 
+
+git remote rename <old-remote-name> <new-remote-name>	- If you want to rename a reference you can run git remote rename to change a remote’s 								  shortname.
+
+git remote rm <remote-name>      - Remove the remote.
+
+Eample:-
+git remote rm origin		 - Remove the remote named origin. 
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+
+git show <commit_id>			- To see the changes introduced by a commit use the following command. 
+ 
+git blame <filename>			- git blame shows the author and commit per line of a file.
+
+git revert <commit_id> 			- revert a commit.
+
+git checkout				- checking out old commits and old file revisions.(Go ahead and get rid of all the changes since the 						  last commit).
+
+git checkout  <file-name or dir-name>	- checking out old commits and old file Or dir revisions.
+
+git checkout <branch-name> 		- You can switch branches using the checkout command.
+
+git checkout -f <branch-name> 		- You can switch branches forcefully using the checkout -f command.
+
+git checkout -b <branch-name> 		- create and immediately switch to a branch with name <branch-name>
+
+git checkout -b <branch-name1> <branch-name2>	- create a branch by taking the contents of <branch-name2> and immediately switch to a branch 							  with name <branch-name1>
+-----------------------------------------------------------------------------------------------------------------------------------------------
+Explore on the below two consequitive steps important
+
+git fetch --all
+
+Your branch and origin has diverged Solution - git reset --hard origin/master
+
+git fetch downloads the latest from remote without trying to merge or rebase anything.
+
+Then the git reset resets the master branch to what you just fetched. The --hard option changes all the files in your working tree to match the files in origin/master, !!! so if you have any local changes, they will be lost. With or without --hard, any local commits that haven't been pushed will be lost.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+Setting up an .gitignore File
+
+By default, Git tracks content changes within all files under a given project tree. Depending on your programming language, there may be certain files that you don't want or need to track. For example temporary files produced by your compiler or application generated files like your error log file.
+
+For Visual Studio projects there are certain sub folders and temporary build files that we don't want Git to track. You can tell Git which files to ignore by having a “.gitignore” file in your projects root folder. The contents of this file should contain a list of files or file types to ignore.
+
+To create a new blank file in your project folder, use the following command:
+
+$ touch .gitignore
+Open the “.gitignore” file in a text editor, like Notepad, and enter the files or complete paths you wish to ignore. Below is an example of what should be ignored in a Visual Studio project:
+
+/bin
+/obj
+*.user
+*.suo
+*.sln.cache
+Thumbs.db
+Also add any application specific files you don't want to be tracked. For example I add my error log file.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+

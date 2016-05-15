@@ -1,0 +1,85 @@
+---------------------------------------------------------------------------------------------------------------
+Configuring User & Email
+---------------------------------------------------------------------------------------------------------------
+git config --global user.name "testuser"
+git config --global user.email "testuser@example.com"
+
+Go To Home Directory --> UserDirectory
+
+cat .gitconfig OR git config --list
+---------------------------------------------------------------------------------------------------------------
+Local Repo Creation
+---------------------------------------------------------------------------------------------------------------
+git init
+git add README.md
+git commit -m "Initial Commit"
+
+---------------------------------------------------------------------------------------------------------------
+Remote Repo Creation
+---------------------------------------------------------------------------------------------------------------
+git init
+git add README.md
+git commit -m "Initial Commit"
+
+git remote add origin git@github.com:Mithun-BM/GITRemoteRepoExample.git 	(Through SSH)
+				//OR
+git remote add origin https://github.com/Mithun-BM/GITRemoteRepoExample.git  	(Through HTTPS)
+
+git push origin master
+
+git push origin master
+---------------------------------------------------------------------------------------------------------------
+
+
+SSH Key - sshmithun
+
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCdvdE7IuN1/dXhCA8ivDk6GFgszGvZyt9oCMAOZl8PlnR5kRngDuMzzmyw7AJ/adiQ1YuIbMXbWBxPTaSEjXdtI2yZbkOiBYkkeNuREemrc+D3yeXRKSTQuX+JL5DW6VoXuDDkKuBDMid4ztg/lYy3KaqY47r0AUQhmmwyWyyoS131LVpdAC+CWCmDRVvJRtHzOETtz96LU/Uqu612fRHXpsKqUicA2/WgBborXF7WOTWnRspx5C3XRZL40UJVnR0LFPErMGPkQfOSP++VggNRAflbu54pQD8hKlr/4r3mGdJ6Aa6pwOEdtVZ/w79lxmlJwrAKf+CqC7xCnpuf0G3/ mithunb.m89@gmail.com
+--------------------------------------------------------------------------------------------------------------------------------------------
+Scenario 1 - Adding 
+In git we shuld always follow pull, add , commit , push as below:-
+
+Step1 - git pull
+Step2 - git add <file-name or dir name>
+Step3 - git commit <file-name or dir name> -m "Commit message"
+Step4 - git push
+
+OR
+
+If the file is already added and requires some changes and commit then follow below steps:-
+
+Step1 - git commit -am "Commit message"
+Step2 - git push
+--------------------------------------------------------------------------------------------------------------------------------------------
+Scenario 2 - Removing
+In git we shuld always follow rm , commit , push as below:-
+
+Step1 - git rm <file-name or dir-name>
+Step2 - git commit <file-name or dir name> -m "Commit message"
+Step3 - git push
+--------------------------------------------------------------------------------------------------------------------------------------------
+Scenario 3 - Moving
+In git we shuld always follow mv , commit , push as below:-
+
+Step1 - git mv <source location> <dest location> 
+Step2 - git commit -m "Commit message"
+Step3 - git push
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+Scenario 4 - Pulling branch
+
+If you have pulled data from remote repo(i.e github), and made some changes in local repo ,and commited, and trying to push into remote repo.
+
+If in remote repo some changes have already been pushed by some other guy , then if we do a git push of our local repo changes, it automatically says failed to push data to remote repo.
+
+In such situations please do a git pull which will fetch the current updated data and merges with the local repo contents, by retaining both our changes and other guys changes.
+
+Finally you can do a git push to push the local repo data to remote repo(i.e github).
+
+
+
+
+
+
+
+
+
